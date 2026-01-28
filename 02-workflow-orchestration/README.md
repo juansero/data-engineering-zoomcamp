@@ -55,3 +55,41 @@ tasks:
     header: true
     table: "{{ inputs.taxi ~ '_tripdata' }}"
     from: "{{ outputs.decompress_file.uri }}"
+## ✅ Soluciones al Quiz
+
+### Question 3. Rows for Yellow Taxi data 2020
+How many rows are there for the Yellow Taxi data for all CSV files in the year 2020?
+* **Respuesta:** `24,648,499`
+* *Consulta SQL:*
+```sql
+SELECT COUNT(*) 
+FROM yellow_tripdata 
+WHERE tpep_pickup_datetime >= '2020-01-01' AND tpep_pickup_datetime < '2021-01-01';
+Question 4. Rows for Green Taxi data 2020
+How many rows are there for the Green Taxi data for all CSV files in the year 2020?
+
+Respuesta: 1,734,051
+
+Consulta SQL:
+
+SQL
+SELECT COUNT(*) 
+FROM green_tripdata 
+WHERE lpep_pickup_datetime >= '2020-01-01' AND lpep_pickup_datetime < '2021-01-01';
+Question 5. Rows for Yellow Taxi March 2021
+How many rows are there for the Yellow Taxi data for the March 2021 CSV file?
+
+Respuesta: 1,925,152
+
+Consulta SQL:
+
+SQL
+SELECT COUNT(*) 
+FROM yellow_tripdata 
+WHERE tpep_pickup_datetime >= '2021-03-01' AND tpep_pickup_datetime < '2021-04-01';
+Question 6. Timezone configuration
+How would you configure the timezone to New York in a Schedule trigger?
+
+Respuesta: Add a timezone property set to America/New_York in the Schedule trigger configuration.
+
+Explicación: Kestra requiere el formato IANA (Continente/Ciudad) para gestionar correctamente los cambios de hora (Daylight Saving Time), algo que UTC-5 o EST no hacen automáticamente.
