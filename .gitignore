@@ -208,3 +208,4 @@ __marimo__/
 
 # Ignorar todos los parquet
 *.parquet
+**/gcs.json
